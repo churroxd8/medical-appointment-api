@@ -24,7 +24,7 @@ A secure, containerized RESTful API built to manage doctors, patients, and sched
 
 **1. Clone the repository**
 \`\`\`bash
-git clone https://github.com/yourusername/medical-appointment-api.git
+git clone https://github.com/churroxd8/medical-appointment-api.git
 cd medical-appointment-api
 \`\`\`
 
