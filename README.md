@@ -23,27 +23,27 @@ A secure, containerized RESTful API built to manage doctors, patients, and sched
 **Prerequisites:** Ensure you have [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running on your machine.
 
 **1. Clone the repository**
-\`\`\`bash
+```bash
 git clone https://github.com/churroxd8/medical-appointment-api.git
 cd medical-appointment-api
-\`\`\`
+```
 
 **2. Spin up the containers**
-\`\`\`bash
+```bash
 docker-compose up -d
-\`\`\`
+```
 
 **3. Run database migrations**
 Apply the Prisma v7 schema to your running PostgreSQL container:
-\`\`\`bash
+```bash
 docker exec -it medical_api npx prisma migrate dev
-\`\`\`
+```
 
 **4. Seed the database**
 Populate the database with the initial test data (including Dr. Doe):
-\`\`\`bash
+```bash
 docker exec -it medical_api node seed.js
-\`\`\`
+```
 
 ## 📖 API Reference
 
