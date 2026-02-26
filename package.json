@@ -1,0 +1,20 @@
+{
+  "name": "medical-appointment-api",
+  "version": "1.0.0",
+  "description": "A robust medical appointment scheduling API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.0.0",
+    "@prisma/client": "^7.0.0",
+    "express": "^4.21.0",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "prisma": "^7.0.0"
+  }
+}

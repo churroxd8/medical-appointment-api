@@ -1,0 +1,36 @@
+services:
+  # The PostgreSQL Database Service
+  db:
+    image: postgres:15-alpine
+    container_name: medical_db
+    restart: always
+    environment:
+      POSTGRES_USER: medical_user
+      POSTGRES_PASSWORD: secure_password_here
+      POSTGRES_DB: medical_appointments
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # The Express API Service
+  api:
+    build: .
+    container_name: medical_api
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      # This URL connects Prisma to the Postgres container named 'db'
+      DATABASE_URL: postgresql://medical_user:secure_password_here@db:5432/medical_appointments?schema=public
+      PORT: 3000
+    depends_on:
+      - db
+    # Mount volumes for live-reloading during development
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+# Define the persistent volume for the database
+volumes:
+  postgres_data:

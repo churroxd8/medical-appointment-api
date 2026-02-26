@@ -1,0 +1,61 @@
+generator client {
+    provider = "prisma-client-js"
+    output = "./generated/client"
+}
+
+datasource db {
+    provider = "postgresql"
+}
+
+// 1. Define the Enum
+enum AppointmentStatus {
+    SCHEDULED
+    COMPLETED
+    CANCELLED
+    NO_SHOW
+}
+
+model Patient {
+    id              String              @unique @default(uuid())
+    firstName       String
+    lastName        String
+    email           String              @unique
+    phone           String?
+
+    appointments    Appointment[]
+
+    createdAt       DateTime            @default(now())
+    updatedAt       DateTime            @updatedAt
+}
+
+model Doctor {
+    id              String              @id @default(uuid())
+    firstName       String              
+    lastName        String
+    specialty       String
+    email           String              @unique
+
+    appointments    Appointment[]
+
+    createdAt       DateTime            @default(now())
+    updatedAt       DateTime            @updatedAt
+}
+
+model Appointment {
+    id              String              @id @default(uuid())
+    dateTime        DateTime
+
+    status          AppointmentStatus   @default(SCHEDULED)
+    notes           String?
+
+    patientId       String
+    doctorId        String
+
+    patient         Patient             @relation(fields: [patientId], references: [id])
+    doctor          Doctor              @relation(fields: [doctorId], references: [id])
+
+    createdAt       DateTime            @default(now())
+    updatedAt       DateTime            @updatedAt
+
+    @@unique([doctorId, dateTime])
+}
