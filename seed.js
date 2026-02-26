@@ -1,6 +1,7 @@
 const { PrismaClient } = require('./prisma/generated/client');
 const { Pool } = require('pg');
 const { PrismaPg } = require('@prisma/adapter-pg');
+const bcrypt = require('bcryptjs');
 
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
@@ -10,6 +11,9 @@ const prisma = new PrismaClient({ adapter });
 async function main() {
   console.log('🌱 Starting database seeding...');
 
+  const plainTextPassword = 'SecurePassword123!';
+  const hashedPassword = await bcrypt.hash(plainTextPassword, 10); // 10 salt rounds
+
   
   const doctor = await prisma.doctor.create({
     data: {
@@ -17,9 +21,10 @@ async function main() {
       lastName: 'Doe',
       specialty: 'Cardiology',
       email: 'jane.doe@example.com',
+      password: hashedPassword,
     },
   });
-  console.log(`Created Doctor: Dr. ${doctor.lastName}`);
+  console.log(`Created Doctor: Dr. ${doctor.lastName} with hashed password`);
 
   
   const patient = await prisma.patient.create({

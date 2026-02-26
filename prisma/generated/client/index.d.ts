@@ -2236,6 +2236,7 @@ export namespace Prisma {
     lastName: string | null
     specialty: string | null
     email: string | null
+    password: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2246,6 +2247,7 @@ export namespace Prisma {
     lastName: string | null
     specialty: string | null
     email: string | null
+    password: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -2256,6 +2258,7 @@ export namespace Prisma {
     lastName: number
     specialty: number
     email: number
+    password: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -2268,6 +2271,7 @@ export namespace Prisma {
     lastName?: true
     specialty?: true
     email?: true
+    password?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2278,6 +2282,7 @@ export namespace Prisma {
     lastName?: true
     specialty?: true
     email?: true
+    password?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -2288,6 +2293,7 @@ export namespace Prisma {
     lastName?: true
     specialty?: true
     email?: true
+    password?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -2371,6 +2377,7 @@ export namespace Prisma {
     lastName: string
     specialty: string
     email: string
+    password: string
     createdAt: Date
     updatedAt: Date
     _count: DoctorCountAggregateOutputType | null
@@ -2398,6 +2405,7 @@ export namespace Prisma {
     lastName?: boolean
     specialty?: boolean
     email?: boolean
+    password?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     appointments?: boolean | Doctor$appointmentsArgs<ExtArgs>
@@ -2410,6 +2418,7 @@ export namespace Prisma {
     lastName?: boolean
     specialty?: boolean
     email?: boolean
+    password?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["doctor"]>
@@ -2420,6 +2429,7 @@ export namespace Prisma {
     lastName?: boolean
     specialty?: boolean
     email?: boolean
+    password?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["doctor"]>
@@ -2430,11 +2440,12 @@ export namespace Prisma {
     lastName?: boolean
     specialty?: boolean
     email?: boolean
+    password?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type DoctorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "specialty" | "email" | "createdAt" | "updatedAt", ExtArgs["result"]["doctor"]>
+  export type DoctorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "specialty" | "email" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["doctor"]>
   export type DoctorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     appointments?: boolean | Doctor$appointmentsArgs<ExtArgs>
     _count?: boolean | DoctorCountOutputTypeDefaultArgs<ExtArgs>
@@ -2453,6 +2464,7 @@ export namespace Prisma {
       lastName: string
       specialty: string
       email: string
+      password: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["doctor"]>
@@ -2884,6 +2896,7 @@ export namespace Prisma {
     readonly lastName: FieldRef<"Doctor", 'String'>
     readonly specialty: FieldRef<"Doctor", 'String'>
     readonly email: FieldRef<"Doctor", 'String'>
+    readonly password: FieldRef<"Doctor", 'String'>
     readonly createdAt: FieldRef<"Doctor", 'DateTime'>
     readonly updatedAt: FieldRef<"Doctor", 'DateTime'>
   }
@@ -4454,6 +4467,7 @@ export namespace Prisma {
     lastName: 'lastName',
     specialty: 'specialty',
     email: 'email',
+    password: 'password',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -4637,6 +4651,7 @@ export namespace Prisma {
     lastName?: StringFilter<"Doctor"> | string
     specialty?: StringFilter<"Doctor"> | string
     email?: StringFilter<"Doctor"> | string
+    password?: StringFilter<"Doctor"> | string
     createdAt?: DateTimeFilter<"Doctor"> | Date | string
     updatedAt?: DateTimeFilter<"Doctor"> | Date | string
     appointments?: AppointmentListRelationFilter
@@ -4648,6 +4663,7 @@ export namespace Prisma {
     lastName?: SortOrder
     specialty?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     appointments?: AppointmentOrderByRelationAggregateInput
@@ -4662,6 +4678,7 @@ export namespace Prisma {
     firstName?: StringFilter<"Doctor"> | string
     lastName?: StringFilter<"Doctor"> | string
     specialty?: StringFilter<"Doctor"> | string
+    password?: StringFilter<"Doctor"> | string
     createdAt?: DateTimeFilter<"Doctor"> | Date | string
     updatedAt?: DateTimeFilter<"Doctor"> | Date | string
     appointments?: AppointmentListRelationFilter
@@ -4673,6 +4690,7 @@ export namespace Prisma {
     lastName?: SortOrder
     specialty?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: DoctorCountOrderByAggregateInput
@@ -4689,6 +4707,7 @@ export namespace Prisma {
     lastName?: StringWithAggregatesFilter<"Doctor"> | string
     specialty?: StringWithAggregatesFilter<"Doctor"> | string
     email?: StringWithAggregatesFilter<"Doctor"> | string
+    password?: StringWithAggregatesFilter<"Doctor"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Doctor"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Doctor"> | Date | string
   }
@@ -4847,6 +4866,7 @@ export namespace Prisma {
     lastName: string
     specialty: string
     email: string
+    password: string
     createdAt?: Date | string
     updatedAt?: Date | string
     appointments?: AppointmentCreateNestedManyWithoutDoctorInput
@@ -4858,6 +4878,7 @@ export namespace Prisma {
     lastName: string
     specialty: string
     email: string
+    password: string
     createdAt?: Date | string
     updatedAt?: Date | string
     appointments?: AppointmentUncheckedCreateNestedManyWithoutDoctorInput
@@ -4869,6 +4890,7 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     specialty?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appointments?: AppointmentUpdateManyWithoutDoctorNestedInput
@@ -4880,6 +4902,7 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     specialty?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     appointments?: AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
@@ -4891,6 +4914,7 @@ export namespace Prisma {
     lastName: string
     specialty: string
     email: string
+    password: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -4901,6 +4925,7 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     specialty?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4911,6 +4936,7 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     specialty?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5132,6 +5158,7 @@ export namespace Prisma {
     lastName?: SortOrder
     specialty?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5142,6 +5169,7 @@ export namespace Prisma {
     lastName?: SortOrder
     specialty?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5152,6 +5180,7 @@ export namespace Prisma {
     lastName?: SortOrder
     specialty?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -5612,6 +5641,7 @@ export namespace Prisma {
     lastName: string
     specialty: string
     email: string
+    password: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5622,6 +5652,7 @@ export namespace Prisma {
     lastName: string
     specialty: string
     email: string
+    password: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -5679,6 +5710,7 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     specialty?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -5689,6 +5721,7 @@ export namespace Prisma {
     lastName?: StringFieldUpdateOperationsInput | string
     specialty?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
